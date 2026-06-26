@@ -1,0 +1,156 @@
+:root {
+  color-scheme: light;
+  font-family: "Quicksand", sans-serif;
+  color: #3a3530;
+  background: #faf7f2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: #faf7f2;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: #faf7f2;
+  color: #3a3530;
+  font-family: "Quicksand", sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.site-header {
+  padding: 56px 24px 28px;
+  text-align: center;
+}
+
+.header-content {
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+
+.header-label,
+.panel-label {
+  margin: 0 0 10px;
+  color: #8c746f;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 7vw, 4.8rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+
+.header-subtitle {
+  max-width: 580px;
+  margin: 16px auto 0;
+  color: #716860;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.7;
+}
+
+.journal-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+  gap: 28px;
+  width: min(100% - 40px, 1380px);
+  margin: 0 auto;
+  padding-bottom: 56px;
+  align-items: start;
+}
+
+.entry-panel,
+.scrapbook-panel {
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(58, 53, 48, 0.04);
+}
+
+.entry-panel {
+  position: sticky;
+  top: 24px;
+  min-height: 520px;
+  padding: 28px;
+  background: #fffdf9;
+}
+
+.scrapbook-panel {
+  min-height: 620px;
+  padding: 28px;
+  background: #f5eee7;
+}
+
+.panel-heading {
+  margin-bottom: 24px;
+}
+
+.panel-heading h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.entry-form-container {
+  min-height: 420px;
+}
+
+.journal-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  min-height: 500px;
+}
+
+@media (max-width: 860px) {
+  .site-header {
+    padding-top: 40px;
+  }
+
+  .journal-layout {
+    grid-template-columns: 1fr;
+    width: min(100% - 28px, 720px);
+  }
+
+  .entry-panel {
+    position: static;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .site-header {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .journal-layout {
+    width: min(100% - 20px, 720px);
+    gap: 18px;
+  }
+
+  .entry-panel,
+  .scrapbook-panel {
+    padding: 22px;
+  }
+
+  .journal-gallery {
+    grid-template-columns: 1fr;
+  }
+}
