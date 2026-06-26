@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cozy Journeys is a personal travel journal for collecting
+    favorite destinations, photographs, moods and memories">
+    <title>Cozy Journeys</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+
+            <p class="header-label">My Travel Scrapbook</p>
+
+            <h1>Cozy Journeys</h1>
+
+            <p class="header-subtitle">A little corner for the places, feelings and moments worth remembering.</p>
+
+        </div>
+    </header>
+
+    <main class="journal-layout">
+        <aside class="entry-panel" aria-labelledby="entryPanelTitle">
+
+            <div class="panel-heading">
+                <p class="panel-label">New Memory</p>
+                <h2 id="entryPanelTitle">Add a journey</h2>
+            </div>
+
+            <div id="entryFormContainer" class="entry-form-container"></div>
+        </aside>
+
+        <section class="scrapbook=panel" aria-labelledby="scrapbookTitle">
+
+            <div class="panel-heading">
+                <p class="panel-label">Collected Moments</p>
+                <h2 id="scrapbookTitle">My Scrapbook</h2>
+            </div>
+
+            <div id="journalGallery" class="journal-gallery" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
