@@ -111,6 +111,125 @@ textarea {
   min-height: 420px;
 }
 
+.journal-form {
+  display: grid;
+  gap: 20px;
+}
+
+.form-field {
+  display: grid;
+  gap: 8px;
+}
+
+.form-field label {
+  color: #514a44;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  border: 1px solid #e8ded5;
+  border-radius: 12px;
+  outline: none;
+  background: #fffaf5;
+  color: #3a3530;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.form-field input,
+.form-field select {
+  min-height: 48px;
+  padding: 0 14px;
+}
+
+.form-field textarea {
+  min-height: 172px;
+  padding: 13px 14px 12px;
+  resize: vertical;
+  line-height: 28px;
+  background-color: #fffdf9;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 27px,
+    rgba(185, 164, 148, 0.28) 28px
+  );
+  background-size: 100% 28px;
+  background-attachment: local;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #a89d94;
+  opacity: 1;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: #d8b8bb;
+  background-color: #fffdfb;
+  box-shadow: 0 0 0 4px rgba(232, 197, 200, 0.28);
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::after {
+  content: "⌄";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  color: #82776e;
+  font-size: 1rem;
+  pointer-events: none;
+  transform: translateY(-58%);
+}
+
+.form-field select {
+  appearance: none;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.form-field input[type="date"] {
+  color: #716860;
+}
+
+.submit-button {
+  width: 100%;
+  min-height: 52px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 999px;
+  background: #e8c5c8;
+  color: #4d4040;
+  font-size: 0.98rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.submit-button:hover {
+  background: #dfb7bb;
+  box-shadow: 0 8px 18px rgba(110, 84, 82, 0.12);
+  transform: translateY(-1px);
+}
+
+.submit-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 5px rgba(209, 224, 215, 0.72);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+
 .journal-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

@@ -32,7 +32,61 @@
                 <h2 id="entryPanelTitle">Add a journey</h2>
             </div>
 
-            <div id="entryFormContainer" class="entry-form-container"></div>
+            <div class="entry-form-container">
+                <form id="journalForm" class="journal-form">
+                    <div class="form-field">
+                        <label for="destination">Destination</label>
+                        <input id="desitnation" name="destination" type="text"
+                        placeholder="Where did you wander?" autocomplete="off" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="journeyDate">Date</label>
+                        <input id="journeyDate" name="date" type="date" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="mood">Mood</label>
+                        
+                        <div class="select-wrapper">
+
+                            <select id="mood" name="mood" required>
+
+                                <option value="" selected disabled>How did it feel?</option>
+                                <option value="Peaceful">Peaceful</option>
+
+                                <option value="Joyful">Joyful</option>
+
+                                <option value="Adventurous">Adventurous</option>
+
+                                <option value="Dreamy">Dreamy</option>
+
+                                <option value="Nostalgic">Nostalgic</option>
+
+                                <option value="Restful">Restful</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        
+                        <label for="photoUrl">Photo URL</label>
+                        <input id="photoUrl" name="photoUrl" type="url" 
+                        placeholder="Paste favorite photo link" autocomplete="url" required>
+                    </div>
+
+                    <div class="form-field">
+                        
+                        <label for="description">Journal Note</label>
+                        <textarea id="description" name="description" rows="7"
+                        placeholder="Write down the small details you want to remember..." required></textarea>
+
+                    </div>
+
+                    <button class="submit-button" type="submit">Pin to Journal</button>
+        
+                </form>
+            </div>
         </aside>
 
         <section class="scrapbook=panel" aria-labelledby="scrapbookTitle">
