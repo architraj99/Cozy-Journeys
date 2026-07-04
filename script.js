@@ -1,13 +1,13 @@
 const journalForm = document.querySelector("#journalForm");
 const journalGallery = document.querySelector("#journalGallery");
-const storageKey = "cozyJourneyEntries";
+const storageKey = "cozyJourneysEntries";
 
-const journalEntries = [];
+let journalEntries = [];
 
 const escapeHtml = (value) => {
-    const element = document.createElement("div");
-    element.textContent = value;
-    return element.innerHTML;
+  const element = document.createElement("div");
+  element.textContent = value;
+  return element.innerHTML;
 };
 
 const formatDate = (dateValue) => {
@@ -21,24 +21,24 @@ const formatDate = (dateValue) => {
 };
 
 const saveJournalEntries = () => {
-    localStorage.setItem(storageKey, JSON.stringify(journalEntries));
+  localStorage.setItem(storageKey, JSON.stringify(journalEntries));
 };
 
 const loadJournalEntries = () => {
-    const savedEntries = localStorage.getItem(storageKey);
+  const savedEntries = localStorage.getItem(storageKey);
 
-    if(!savedEntries) {
-        return;
-    }
+  if (!savedEntries) {
+    return;
+  }
 
-    try {
-        const parsedEntries = JSON.parse(savedEntries);
-        journalEntries = Array.isArray(parsedEntries) ? parsedEntries : [];
-    }
-
-    catch {
-        journalEntries = [];
-    }
+  try {
+    const parsedEntries = JSON.parse(savedEntries);
+    journalEntries = Array.isArray(parsedEntries) ? parsedEntries : [];
+  } 
+  
+  catch {
+    journalEntries = [];
+  }
 };
 
 const renderJournalEntries = () => {
@@ -107,19 +107,19 @@ journalForm.addEventListener("submit", (event) => {
 });
 
 journalGallery.addEventListener("click", (event) => {
+    
+  const deleteButton = event.target.closest('[data-action="delete"]');
 
-    const deleteButton = event.target.closest('[data-action="delete"]');
+  if (!deleteButton) {
+    return;
+  }
 
-    if(!deleteButton) {
-        return;
-    }
+  const journalCard = deleteButton.closest(".journal-card");
+  const entryId = Number(journalCard.dataset.id);
 
-    const journalCard = deleteButton.closest(".journal-card");
-    const entryId = Number(journalCard.dataset.id);
-
-    journalEntries = journalEntries.filter((entry) => entry.id !== entryId);
-    saveJournalEntries();
-    renderJournalEntries();
+  journalEntries = journalEntries.filter((entry) => entry.id !== entryId);
+  saveJournalEntries();
+  renderJournalEntries();
 });
 
 loadJournalEntries();

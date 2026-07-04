@@ -69,17 +69,23 @@ textarea {
 .journal-layout {
   display: grid;
   grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+  align-items: start;
   gap: 28px;
   width: min(100% - 40px, 1380px);
   margin: 0 auto;
   padding-bottom: 56px;
-  align-items: start;
 }
 
 .entry-panel,
 .scrapbook-panel {
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(58, 53, 48, 0.04);
+  transition: box-shadow 240ms ease;
+}
+
+.entry-panel:hover,
+.scrapbook-panel:hover {
+  box-shadow: 0 14px 36px rgba(58, 53, 48, 0.065);
 }
 
 .entry-panel {
@@ -138,7 +144,10 @@ textarea {
   color: #3a3530;
   font-size: 0.95rem;
   font-weight: 500;
-  transition: border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .form-field input,
@@ -148,16 +157,19 @@ textarea {
 }
 
 .form-field textarea {
+  
   min-height: 172px;
   padding: 13px 14px 12px;
   resize: vertical;
   line-height: 28px;
   background-color: #fffdf9;
+  
   background-image: linear-gradient(
     to bottom,
     transparent 27px,
     rgba(185, 164, 148, 0.28) 28px
   );
+
   background-size: 100% 28px;
   background-attachment: local;
 }
@@ -205,14 +217,19 @@ textarea {
   width: 100%;
   min-height: 52px;
   margin-top: 4px;
+  
   border: 0;
   border-radius: 999px;
   background: #e8c5c8;
   color: #4d4040;
+  
   font-size: 0.98rem;
   font-weight: 700;
   cursor: pointer;
-  transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .submit-button:hover {
@@ -238,27 +255,62 @@ textarea {
 }
 
 .journal-card {
+  --card-rotation: -1deg;
   position: relative;
   align-self: start;
+  
   padding: 12px 12px 24px;
   overflow: hidden;
   border-radius: 4px;
   background: #ffffff;
+  
   box-shadow: 0 12px 24px rgba(58, 53, 48, 0.09);
-  transform: rotate(-1deg);
+  transform: rotate(var(--card-rotation));
   transform-origin: center;
+  animation: fadeSlideUp 500ms ease both;
+  
+  transition:
+    transform 240ms ease,
+    box-shadow 240ms ease;
 }
 
 .journal-card:nth-child(4n + 2) {
-  transform: rotate(1.25deg);
+  --card-rotation: 1.25deg;
 }
 
 .journal-card:nth-child(4n + 3) {
-  transform: rotate(-0.55deg);
+  --card-rotation: -0.55deg;
 }
 
 .journal-card:nth-child(4n + 4) {
-  transform: rotate(0.8deg);
+  --card-rotation: 0.8deg;
+}
+
+.journal-card:nth-child(2) {
+  animation-delay: 60ms;
+}
+
+.journal-card:nth-child(3) {
+  animation-delay: 120ms;
+}
+
+.journal-card:nth-child(4) {
+  animation-delay: 180ms;
+}
+
+.journal-card:nth-child(5) {
+  animation-delay: 240ms;
+}
+
+.journal-card:nth-child(6) {
+  animation-delay: 300ms;
+}
+
+.journal-card:hover,
+.journal-card:focus-within {
+  z-index: 2;
+  box-shadow: 0 18px 34px rgba(58, 53, 48, 0.14);
+  transform: translateY(-4px) rotate(var(--card-rotation));
 }
 
 .journal-photo-frame {
@@ -273,6 +325,12 @@ textarea {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.journal-card:hover .journal-photo,
+.journal-card:focus-within .journal-photo {
+  transform: scale(1.025);
 }
 
 .delete-button {
@@ -282,10 +340,12 @@ textarea {
   display: grid;
   width: 34px;
   height: 34px;
+  
   padding: 0;
   place-items: center;
   border: 0;
   border-radius: 50%;
+  
   background: rgba(255, 253, 249, 0.9);
   color: #76575a;
   font-size: 1.4rem;
@@ -293,7 +353,11 @@ textarea {
   line-height: 1;
   box-shadow: 0 4px 12px rgba(58, 53, 48, 0.12);
   cursor: pointer;
-  transition: background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .delete-button:hover {
@@ -347,9 +411,11 @@ textarea {
   min-height: 28px;
   margin: 14px 0 0;
   padding: 5px 11px;
+
   border-radius: 999px;
   background: #d1e0d7;
   color: #4f6357;
+
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -366,11 +432,25 @@ textarea {
   font-size: 0.9rem;
   font-weight: 500;
   line-height: 1.7;
+
   overflow-wrap: anywhere;
   white-space: pre-wrap;
 }
 
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px) rotate(var(--card-rotation));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--card-rotation));
+  }
+}
+
 @media (max-width: 860px) {
+
   .site-header {
     padding-top: 40px;
   }
@@ -404,5 +484,21 @@ textarea {
 
   .journal-gallery {
     grid-template-columns: 1fr;
+  }
+
+  .journal-card {
+    padding: 10px 10px 22px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto;
+    animation-duration: 1ms;
+    animation-delay: 0ms;
+    transition-duration: 1ms;
   }
 }
