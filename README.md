@@ -45,3 +45,6 @@ use cdn.hackclub.com or #cdn from slack
 
 
 ## screenshot
+
+<img width="1343" height="632" alt="image" src="https://github.com/user-attachments/assets/7034bd09-f5ff-4849-af9b-d79eb7494dba" />
+
